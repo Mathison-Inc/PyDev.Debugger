@@ -505,6 +505,8 @@ def process_net_command(py_db, cmd_id, seq, text):
                     breakpoint_type = 'python'
 
                 if breakpoint_type == 'python':
+                    if notify_always == 'None':
+                        notify_always = '0'
                     if int(notify_always) == 1:
                         pydev_log.warn("Deprecated parameter: 'notify always' policy removed in PyCharm\n")
                     exception_breakpoint = py_db.add_break_on_exception(
